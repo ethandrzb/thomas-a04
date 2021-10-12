@@ -12,9 +12,10 @@ class Solution41
 
 -void readNameList() throws IOException
 -void writeNameList(String output) throws IOException
-+void sortNameList()
++void sortNameList(List<HashMap<String, String>> list)
 -String generateOutput()
 -int getDividerLength()
++List<HashMap<String, String>> getNames()
 }
 
 @enduml

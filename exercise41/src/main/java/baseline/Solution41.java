@@ -28,7 +28,7 @@ public class Solution41
         sol.readNameList();
 
         // Sort data structure by last name
-        sol.sortNameList();
+        sol.sortNameList(sol.names);
 
         // Generate output
         String output = sol.generateOutput();
@@ -74,9 +74,9 @@ public class Solution41
         pw.close();
     }
 
-    public void sortNameList()
+    public void sortNameList(List<HashMap<String, String>> list)
     {
-        names.sort((o1, o2) -> {
+        list.sort((o1, o2) -> {
             // Compare last names
             if (o1.get(LAST_NAME).compareTo(o2.get(LAST_NAME)) != 0)
             {
@@ -130,4 +130,8 @@ public class Solution41
         return max + 2;
     }
 
+    public List<HashMap<String, String>> getNames()
+    {
+        return names;
+    }
 }
