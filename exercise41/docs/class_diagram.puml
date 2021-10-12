@@ -3,13 +3,18 @@
 
 class Solution41
 {
--Scanner fromFile
+-String FIRST_NAME
+-String LAST_NAME
+-Path currentPath
+-Path inputPath
+-Path outputPath
 -ArrayList<HashMap<String,String> names
 
--void readListOfNames(String fileName)
+-void readNameList() throws IOException
+-void writeNameList(String output) throws IOException
 +void sortNameList()
--String generateOutputList()
--int getDividerLength(List<HashMap<String, String>> list)
+-String generateOutput()
+-int getDividerLength()
 }
 
 @enduml
