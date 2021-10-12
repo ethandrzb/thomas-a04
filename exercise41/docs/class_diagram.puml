@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Solution41
+{
+-Scanner fromFile
+-ArrayList<HashMap<String,String> names
+
+-void readListOfNames(String fileName)
++void sortNameList()
+-String generateOutputList()
+-int getDividerLength(List<HashMap<String, String>> list)
+}
+
+@enduml

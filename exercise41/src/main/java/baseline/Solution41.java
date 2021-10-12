@@ -5,6 +5,9 @@
 
 package baseline;
 
+import java.util.HashMap;
+import java.util.List;
+
 public class Solution41
 {
     public static void main(String[] args)
@@ -19,4 +22,42 @@ public class Solution41
 
         // Exit
     }
+
+    private void readListOfNames(String fileName)
+    {
+        // Generate input path
+
+        // Open input file
+
+        // While there are still names to be read
+            // Add first name to map
+            // Add last name to map
+            // Add map to list
+    }
+
+    public void sortNameList()
+    {
+        // Sort list of names
+    }
+
+    private String generateOutputList()
+    {
+        // Add number of names in list to output buffer
+
+        // Get divider length
+
+        // Add divider to output buffer
+
+        // Add each name from sorted list to output buffer in the form of last_name, first_name
+
+        // Return buffer
+
+    }
+    private int getDividerLength(List<HashMap<String, String>> list)
+    {
+        // Find length of longest name in list + 2
+
+        // Return length
+    }
+
 }
