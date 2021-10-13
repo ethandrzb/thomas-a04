@@ -18,7 +18,7 @@ public class Solution41
         NameSorter ns = new NameSorter();
 
         // Read input file and store in sortable data structure
-        ns.readNameList();
+        ns.readNameList("exercise41_input.txt");
 
         // Sort data structure by last name
         ns.sortNameList();
@@ -27,7 +27,7 @@ public class Solution41
         String output = ns.generateOutput();
 
         // Write output to file
-        ns.writeNameList(output);
+        ns.writeNameList("exercise41_output.txt", output);
 
         // Exit
         System.exit(0);
@@ -39,8 +39,6 @@ class NameSorter
     private static final String FIRST_NAME = "FIRST_NAME";
     private static final String LAST_NAME = "LAST_NAME";
     private static final Path currentPath = Paths.get(System.getProperty("user.dir"));
-    private static final Path inputPath = Paths.get(currentPath.toString(), "data", "exercise41_input.txt");
-    private static final Path outputPath = Paths.get(currentPath.toString(), "data", "exercise41_output.txt");
     private final ArrayList<HashMap<String, String>> names;
 
     public NameSorter()
@@ -53,11 +51,16 @@ class NameSorter
         this.names = (ArrayList<HashMap<String, String>>) names;
     }
 
-    public void readNameList() throws IOException
+    private Path getPathFromFileName(String fileName)
+    {
+        return Paths.get(currentPath.toString(), "data", fileName);
+    }
+
+    public void readNameList(String fileName) throws IOException
     {
         String[] current;
         // Open input file
-        Scanner fromFile = new Scanner(inputPath);
+        Scanner fromFile = new Scanner(getPathFromFileName(fileName));
 
         // While there are still names to be read
         while(fromFile.hasNext())
@@ -78,9 +81,9 @@ class NameSorter
         fromFile.close();
     }
 
-    public void writeNameList(String output) throws IOException
+    public void writeNameList(String fileName, String output) throws IOException
     {
-        PrintWriter pw = new PrintWriter(outputPath.toString());
+        PrintWriter pw = new PrintWriter(getPathFromFileName(fileName).toString());
 
         pw.print(output);
 
@@ -132,7 +135,7 @@ class NameSorter
         int max = Integer.MIN_VALUE;
         int nameLength;
 
-        // Find length of longest name in list + 2
+        // Find length of the longest name in list + 2
         for(HashMap<String, String> hs : names)
         {
             nameLength = hs.get(FIRST_NAME).length() + hs.get(LAST_NAME).length();
@@ -141,5 +144,10 @@ class NameSorter
 
         // Return length
         return max + 2;
+    }
+
+    public List<HashMap<String, String>> getNames()
+    {
+        return names;
     }
 }
