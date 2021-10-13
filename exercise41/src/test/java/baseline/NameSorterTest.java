@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Solution41Test
+class NameSorterTest
 {
     static final String FIRST_NAME = "FIRST_NAME";
     static final String LAST_NAME = "LAST_NAME";
@@ -47,13 +47,14 @@ class Solution41Test
     }
 
     @Test
-    void sortNameList() {
-        Solution41 sol = new Solution41();
-
+    void sortNameList()
+    {
         // Get test data
         ArrayList<HashMap<String, String>> testNames = generateTestData();
 
-        sol.sortNameList(testNames);
+        NameSorter ns = new NameSorter(testNames);
+
+        ns.sortNameList();
 
         assertEquals("aw", testNames.get(0).get(FIRST_NAME));
         assertEquals("ab", testNames.get(0).get(LAST_NAME));

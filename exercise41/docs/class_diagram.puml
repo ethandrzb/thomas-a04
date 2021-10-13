@@ -3,19 +3,26 @@
 
 class Solution41
 {
--String FIRST_NAME
--String LAST_NAME
--Path currentPath
--Path inputPath
--Path outputPath
--ArrayList<HashMap<String,String> names
-
--void readNameList() throws IOException
--void writeNameList(String output) throws IOException
-+void sortNameList(List<HashMap<String, String>> list)
--String generateOutput()
--int getDividerLength()
-+List<HashMap<String, String>> getNames()
+    +static void main(String[] args)
 }
+
+class NameSorter
+{
+    -String FIRST_NAME
+    -String LAST_NAME
+    -Path currentPath
+    -Path inputPath
+    -Path outputPath
+    -ArrayList<HashMap<String,String> names
+
+    -void readNameList() throws IOException
+    -void writeNameList(String output) throws IOException
+    +void sortNameList(List<HashMap<String, String>> list)
+    -String generateOutput()
+    -int getDividerLength()
+    +List<HashMap<String, String>> getNames()
+}
+
+Solution41 o-- NameSorter
 
 @enduml

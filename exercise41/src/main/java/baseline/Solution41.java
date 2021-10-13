@@ -13,34 +13,47 @@ import java.util.*;
 
 public class Solution41
 {
+    public static void main(String[] args) throws IOException
+    {
+        NameSorter ns = new NameSorter();
+
+        // Read input file and store in sortable data structure
+        ns.readNameList();
+
+        // Sort data structure by last name
+        ns.sortNameList();
+
+        // Generate output
+        String output = ns.generateOutput();
+
+        // Write output to file
+        ns.writeNameList(output);
+
+        // Exit
+        System.exit(0);
+    }
+}
+
+class NameSorter
+{
     private static final String FIRST_NAME = "FIRST_NAME";
     private static final String LAST_NAME = "LAST_NAME";
     private static final Path currentPath = Paths.get(System.getProperty("user.dir"));
     private static final Path inputPath = Paths.get(currentPath.toString(), "data", "exercise41_input.txt");
     private static final Path outputPath = Paths.get(currentPath.toString(), "data", "exercise41_output.txt");
-    private final ArrayList<HashMap<String, String>> names = new ArrayList<>();
+    private final ArrayList<HashMap<String, String>> names;
 
-    public static void main(String[] args) throws IOException
+    public NameSorter()
     {
-        Solution41 sol = new Solution41();
-
-        // Read input file and store in sortable data structure
-        sol.readNameList();
-
-        // Sort data structure by last name
-        sol.sortNameList(sol.names);
-
-        // Generate output
-        String output = sol.generateOutput();
-
-        // Write output to file
-        sol.writeNameList(output);
-
-        // Exit
-        System.exit(0);
+        names = new ArrayList<>();
     }
 
-    private void readNameList() throws IOException
+    public NameSorter(List<HashMap<String, String>> names)
+    {
+        this.names = (ArrayList<HashMap<String, String>>) names;
+    }
+
+    public void readNameList() throws IOException
     {
         String[] current;
         // Open input file
@@ -65,7 +78,7 @@ public class Solution41
         fromFile.close();
     }
 
-    private void writeNameList(String output) throws IOException
+    public void writeNameList(String output) throws IOException
     {
         PrintWriter pw = new PrintWriter(outputPath.toString());
 
@@ -74,9 +87,9 @@ public class Solution41
         pw.close();
     }
 
-    public void sortNameList(List<HashMap<String, String>> list)
+    public void sortNameList()
     {
-        list.sort((o1, o2) -> {
+        names.sort((o1, o2) -> {
             // Compare last names
             if (o1.get(LAST_NAME).compareTo(o2.get(LAST_NAME)) != 0)
             {
@@ -90,7 +103,7 @@ public class Solution41
         });
     }
 
-    private String generateOutput()
+    public String generateOutput()
     {
         StringBuilder output = new StringBuilder();
         String line;
@@ -128,10 +141,5 @@ public class Solution41
 
         // Return length
         return max + 2;
-    }
-
-    public List<HashMap<String, String>> getNames()
-    {
-        return names;
     }
 }
