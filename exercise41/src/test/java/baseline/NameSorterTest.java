@@ -7,8 +7,11 @@ package baseline;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -67,5 +70,67 @@ class NameSorterTest
 
         assertEquals("wr", testNames.get(3).get(FIRST_NAME));
         assertEquals("dbc", testNames.get(3).get(LAST_NAME));
+    }
+
+    @Test
+    void readNameList() throws IOException
+    {
+        int i = 0;
+        String[] fieldList = {LAST_NAME, FIRST_NAME};
+        String[] expected = {"Ling", "Mai",
+                            "Johnson", "Jim",
+                            "Zarnecki", "Sabrina",
+                            "Jones", "Chris",
+                            "Jones", "Aaron",
+                            "Swift", "Geoffrey",
+                            "Xiong", "Fong"};
+
+        NameSorter ns = new NameSorter();
+
+        ns.readNameList("exercise41_input.txt");
+
+        ArrayList<HashMap<String, String>> actualNames = (ArrayList<HashMap<String, String>>) ns.getNames();
+
+        for(HashMap<String, String> hs : actualNames)
+        {
+            for(String field : fieldList)
+            {
+                assertEquals(expected[i], hs.get(field));
+                i++;
+            }
+        }
+    }
+
+    @Test
+    void writeNameList() throws IOException
+    {
+        String[] expected = """
+                Total of 7 names
+                -----------------
+                Johnson, Jim
+                Jones, Aaron
+                Jones, Chris
+                Ling, Mai
+                Swift, Geoffrey
+                Xiong, Fong
+                Zarnecki, Sabrina
+                """.split("\n");
+        NameSorter ns = new NameSorter();
+
+        ns.readNameList("exercise41_input.txt");
+
+        ns.sortNameList();
+
+        String output = ns.generateOutput();
+
+        ns.writeNameList("exercise41_output.txt", output);
+
+        Scanner sc = new Scanner(new File("data/exercise41_output.txt"));
+
+        // Read generated file
+        for(String line : expected)
+        {
+            assertEquals(line, sc.nextLine());
+        }
     }
 }
