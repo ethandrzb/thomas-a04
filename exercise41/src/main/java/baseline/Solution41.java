@@ -38,7 +38,7 @@ class NameSorter
 {
     private static final String FIRST_NAME = "FIRST_NAME";
     private static final String LAST_NAME = "LAST_NAME";
-    private static final Path currentPath = Paths.get(System.getProperty("user.dir"));
+    private final Path currentPath = Paths.get(System.getProperty("user.dir"));
     private final ArrayList<HashMap<String, String>> names;
 
     public NameSorter()
