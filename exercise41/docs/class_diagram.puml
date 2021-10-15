@@ -11,10 +11,13 @@ class NameSorter
     -String FIRST_NAME
     -String LAST_NAME
     -Path currentPath
-    -Path inputPath
-    -Path outputPath
     -ArrayList<HashMap<String,String> names
 
+    ' Constructors
+    +NameSorter()
+    +NameSorter(List<HashMap<String, String>> names)
+
+    -Path getPathFromFileName(String fileName)
     -void readNameList() throws IOException
     -void writeNameList(String output) throws IOException
     +void sortNameList(List<HashMap<String, String>> list)
