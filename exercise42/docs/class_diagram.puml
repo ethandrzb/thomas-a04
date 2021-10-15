@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Solution41
+{
+    +static void main(String[] args)
+}
+
+class CSVToTabular
+{
+    -ArrayList<ArrayList<String>> data
+    -Path currentPath
+
+    -Path getPathFromFileName(String fileName)
+    +void readCSV(String inputFileName)
+    +void employeeCSVToTable(String outputFileName)
+    -int getDividerLength()
+    -int getFieldWidth(int column)
+}
+
+Solution41 o-- CSVToTabular
+
+@enduml
