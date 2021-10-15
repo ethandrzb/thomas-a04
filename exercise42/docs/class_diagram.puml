@@ -17,6 +17,7 @@ class CSVToTabular
     +String employeeCSVToTable()
     -int getDividerLength()
     -int getFieldWidth(int column)
+    +List<ArrayList<String>> getData()
 }
 
 Solution42 o-- CSVToTabular

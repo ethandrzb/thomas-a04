@@ -20,7 +20,7 @@ public class Solution42
         // Read CSV
         cTab.readCSV("exercise42_input.txt");
 
-        // Write data from CSV to another file in tabular format
+        // Print formatted table
         System.out.print(cTab.employeeCSVToTable());
 
         // Exit
@@ -110,5 +110,10 @@ class CSVToTabular
 
         // Return this length + 2
         return max + 2;
+    }
+
+    public List<ArrayList<String>> getData()
+    {
+        return data;
     }
 }
