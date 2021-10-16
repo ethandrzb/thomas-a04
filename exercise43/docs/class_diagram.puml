@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Solution43
+{
+    +{static} void main(String[] args)
+}
+
+class WebsiteGenerator
+{
+    +WebsiteGenerator(String siteName, String authorName)
+    +void configureSite()
+    -boolean getYesNoFromUser(String prompt)
+    +void generateSite()
+    -void createDirAndDisplayPath(String directoryName)
+}
+
+Solution43 o-- WebsiteGenerator
+
+@enduml
