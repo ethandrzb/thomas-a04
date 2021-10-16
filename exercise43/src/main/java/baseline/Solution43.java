@@ -14,55 +14,18 @@ import java.util.Scanner;
 
 public class Solution43
 {
+    private static final Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args)
     {
+        Solution43 sol = new Solution43();
         WebsiteGenerator wg = new WebsiteGenerator();
 
-        // Configure website
-        wg.configureSite();
+        String websiteName;
+        String authorName;
+        boolean createJSFolder;
+        boolean createCSSFolder;
 
-        // Generate website
-        wg.generateSite();
-
-        // Exit
-        System.exit(0);
-    }
-}
-class WebsiteGenerator
-{
-    private static final Scanner sc = new Scanner(System.in);
-    private final Path currentPath = Paths.get(System.getProperty("user.dir"), "data");
-    private Path siteRoot;
-
-    private static final String FILE_CREATION_HEADER = "Created ";
-
-    private String websiteName;
-    private String authorName;
-
-    private boolean createJSFolder;
-    private boolean createCSSFolder;
-
-    public WebsiteGenerator()
-    {
-        websiteName = "";
-        authorName = "";
-
-        createJSFolder = false;
-        createCSSFolder = false;
-    }
-
-    // Used for testing
-    public WebsiteGenerator(String websiteName, String authorName, boolean createJSFolder, boolean createCSSFolder)
-    {
-        this.websiteName = websiteName;
-        this.authorName = authorName;
-
-        this.createJSFolder = createJSFolder;
-        this.createCSSFolder = createCSSFolder;
-    }
-
-    public void configureSite()
-    {
         // Prompt user for website name
         System.out.print("Site name: ");
         websiteName = sc.nextLine();
@@ -72,12 +35,20 @@ class WebsiteGenerator
         authorName = sc.nextLine();
 
         // Ask user if they want a folder created for JS files
-        createJSFolder = getYesNoFromUser("Do you want a folder for JavaScript?");
+        createJSFolder = sol.getYesNoFromUser("Do you want a folder for JavaScript?");
 
         // Ask user if they want a folder created for CSS files
-        createCSSFolder = getYesNoFromUser("Do you want a folder for CSS?");
-    }
+        createCSSFolder = sol.getYesNoFromUser("Do you want a folder for CSS?");
 
+        // Configure website
+        wg.configureSite(websiteName, authorName, createJSFolder, createCSSFolder);
+
+        // Generate website
+        wg.generateSite();
+
+        // Exit
+        System.exit(0);
+    }
     private boolean getYesNoFromUser(String prompt)
     {
         String userInput;
@@ -103,6 +74,29 @@ class WebsiteGenerator
                 System.out.println("Invalid choice entered. Enter 'Y' for yes or 'N' for no.");
             }
         }
+    }
+}
+
+class WebsiteGenerator
+{
+    private final Path currentPath = Paths.get(System.getProperty("user.dir"), "data");
+    private Path siteRoot;
+
+    private static final String FILE_CREATION_HEADER = "Created ";
+
+    private String websiteName;
+    private String authorName;
+
+    private boolean createJSFolder;
+    private boolean createCSSFolder;
+
+    public void configureSite(String websiteName, String authorName, boolean createJSFolder, boolean createCSSFolder)
+    {
+        this.websiteName = websiteName;
+        this.authorName = authorName;
+
+        this.createJSFolder = createJSFolder;
+        this.createCSSFolder = createCSSFolder;
     }
 
     public void generateSite()
