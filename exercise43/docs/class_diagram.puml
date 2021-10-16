@@ -23,8 +23,6 @@ class WebsiteGenerator
     +void generateSite()
     -void generateSiteIndex()
     -void createDirAndDisplayPath(String directoryName)
-    +String getWebsiteName()
-    +String getAuthorName()
 }
 
 Solution43 o-- WebsiteGenerator
