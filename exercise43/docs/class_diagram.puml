@@ -19,7 +19,7 @@ class WebsiteGenerator
     -boolean createJSFolder
     -boolean createCSSFolder
 
-    +void configureSite(String websiteName, String authorName, boolean createJSFolder, boolean createCSSFolder)
+    +WebsiteGenerator(String websiteName, String authorName, boolean createJSFolder, boolean createCSSFolder)
     +void generateSite()
     -void generateSiteIndex()
     -void createDirAndDisplayPath(String directoryName)

@@ -19,7 +19,6 @@ public class Solution43
     public static void main(String[] args)
     {
         Solution43 sol = new Solution43();
-        WebsiteGenerator wg = new WebsiteGenerator();
 
         String websiteName;
         String authorName;
@@ -41,7 +40,7 @@ public class Solution43
         createCSSFolder = sol.getYesNoFromUser("Do you want a folder for CSS?");
 
         // Configure website
-        wg.configureSite(websiteName, authorName, createJSFolder, createCSSFolder);
+        WebsiteGenerator wg = new WebsiteGenerator(websiteName, authorName, createJSFolder, createCSSFolder);
 
         // Generate website
         wg.generateSite();
@@ -84,13 +83,13 @@ class WebsiteGenerator
 
     private static final String FILE_CREATION_HEADER = "Created ";
 
-    private String websiteName;
-    private String authorName;
+    private final String websiteName;
+    private final String authorName;
 
-    private boolean createJSFolder;
-    private boolean createCSSFolder;
+    private final boolean createJSFolder;
+    private final boolean createCSSFolder;
 
-    public void configureSite(String websiteName, String authorName, boolean createJSFolder, boolean createCSSFolder)
+    public WebsiteGenerator(String websiteName, String authorName, boolean createJSFolder, boolean createCSSFolder)
     {
         this.websiteName = websiteName;
         this.authorName = authorName;
@@ -192,15 +191,5 @@ class WebsiteGenerator
         {
             System.out.println("Unable to create directory at " + path);
         }
-    }
-
-    public String getWebsiteName()
-    {
-        return websiteName;
-    }
-
-    public String getAuthorName()
-    {
-        return authorName;
     }
 }
