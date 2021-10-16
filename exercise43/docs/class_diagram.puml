@@ -8,7 +8,6 @@ class Solution43
 
 class WebsiteGenerator
 {
-    +WebsiteGenerator(String siteName, String authorName)
     +void configureSite()
     -boolean getYesNoFromUser(String prompt)
     +void generateSite()
