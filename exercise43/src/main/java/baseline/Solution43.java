@@ -36,11 +36,30 @@ class WebsiteGenerator
 
     private static final String FILE_CREATION_HEADER = "Created ";
 
-    private String websiteName = "";
-    private String authorName = "";
+    private String websiteName;
+    private String authorName;
 
-    private boolean createJSFolder = false;
-    private boolean createCSSFolder = false;
+    private boolean createJSFolder;
+    private boolean createCSSFolder;
+
+    public WebsiteGenerator()
+    {
+        websiteName = "";
+        authorName = "";
+
+        createJSFolder = false;
+        createCSSFolder = false;
+    }
+
+    // Used for testing
+    public WebsiteGenerator(String websiteName, String authorName, boolean createJSFolder, boolean createCSSFolder)
+    {
+        this.websiteName = websiteName;
+        this.authorName = authorName;
+
+        this.createJSFolder = createJSFolder;
+        this.createCSSFolder = createCSSFolder;
+    }
 
     public void configureSite()
     {
@@ -179,5 +198,15 @@ class WebsiteGenerator
         {
             System.out.println("Unable to create directory at " + path);
         }
+    }
+
+    public String getWebsiteName()
+    {
+        return websiteName;
+    }
+
+    public String getAuthorName()
+    {
+        return authorName;
     }
 }

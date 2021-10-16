@@ -8,9 +8,21 @@ class Solution43
 
 class WebsiteGenerator
 {
+    -{static} Scanner sc
+    -Path currentPath
+    -Path siteRoot
+    -{static} String FILE_CREATION_HEADER
+    -String websiteName
+    -String authorName
+    -boolean createJSFolder
+    -boolean createCSSFolder
+
+    +WebsiteGenerator()
+    +WebsiteGenerator(String websiteName, String authorName, boolean createJSFolder, boolean createCSSFolder)
     +void configureSite()
     -boolean getYesNoFromUser(String prompt)
     +void generateSite()
+    -void generateSiteIndex()
     -void createDirAndDisplayPath(String directoryName)
 }
 
