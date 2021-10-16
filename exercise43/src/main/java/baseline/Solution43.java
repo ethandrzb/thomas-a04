@@ -6,8 +6,10 @@
 package baseline;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Formatter;
 import java.util.Scanner;
 
 public class Solution43
@@ -17,7 +19,7 @@ public class Solution43
         WebsiteGenerator wg = new WebsiteGenerator();
 
         // Configure website
-//        wg.configureSite();
+        wg.configureSite();
 
         // Generate website
         wg.generateSite();
@@ -29,19 +31,16 @@ public class Solution43
 class WebsiteGenerator
 {
     private static final Scanner sc = new Scanner(System.in);
-    private final Path currentPath = Paths.get(System.getProperty("user.dir"));
+    private final Path currentPath = Paths.get(System.getProperty("user.dir"), "data");
+    private Path siteRoot;
+
+    private static final String FILE_CREATION_HEADER = "Created ";
 
     private String websiteName = "";
     private String authorName = "";
 
-    private boolean makeJSFolder = false;
-    private boolean makeCSSFolder = false;
-
-    private Path getPathFromFileName(String fileName)
-    {
-        // Try to convert fileName to Path object
-        return Paths.get(currentPath.toString(), "data", fileName);
-    }
+    private boolean createJSFolder = false;
+    private boolean createCSSFolder = false;
 
     public void configureSite()
     {
@@ -54,10 +53,10 @@ class WebsiteGenerator
         authorName = sc.nextLine();
 
         // Ask user if they want a folder created for JS files
-        makeJSFolder = getYesNoFromUser("Do you want a folder for JavaScript?");
+        createJSFolder = getYesNoFromUser("Do you want a folder for JavaScript?");
 
         // Ask user if they want a folder created for CSS files
-        makeCSSFolder = getYesNoFromUser("Do you want a folder for CSS?");
+        createCSSFolder = getYesNoFromUser("Do you want a folder for CSS?");
     }
 
     private boolean getYesNoFromUser(String prompt)
@@ -89,27 +88,96 @@ class WebsiteGenerator
 
     public void generateSite()
     {
+        siteRoot = Paths.get(currentPath.toString(),  "website", websiteName);
+
         // Make root folder for site (./website/siteName)
-        new File(Paths.get(currentPath.toString(),"data",  "website", websiteName).toString()).mkdirs();
+        boolean success = new File(siteRoot.toString()).mkdirs();
+
+        if(success)
+        {
+            System.out.println(FILE_CREATION_HEADER + siteRoot.toString().replaceFirst(
+                    currentPath.toString().replace("\\", "\\\\"), "."));
+        }
+        else
+        {
+            System.out.println("Unable to create website root directory in " + siteRoot.toString());
+        }
 
         // Generate index.html
+        generateSiteIndex();
 
         // Make folder for JS files, if applicable
+        if(createJSFolder)
+        {
+            createDirAndDisplayPath("js");
+        }
 
         // Make folder for CSS files, if applicable
+        if(createCSSFolder)
+        {
+            createDirAndDisplayPath("css");
+        }
     }
 
-    private void generateSiteIndex(Path siteRoot)
+    private void generateSiteIndex()
     {
+        String indexFileName = "index.html";
+        try(Formatter output = new Formatter(Paths.get(siteRoot.toString(), indexFileName).toString()))
+        {
+            // Document header
+            output.format("<!DOCTYPE html>%n");
 
+            // Start of HTML
+            output.format("<html>%n");
+
+            // Start of heading
+            output.format("<head>%n");
+
+            // Set charset to UTF-8
+            output.format("<meta charset=\"utf-8\">%n");
+
+            // Add author to metadata
+            String authorMeta = String.format("<meta name = \"author\" content = \"%s\">%n", authorName);
+            output.format(authorMeta);
+
+            // Add title
+            String title = String.format("<title>%s</title>%n", websiteName);
+            output.format(title);
+
+            // End of heading
+            output.format("</head>%n");
+
+            // End of HTML
+            output.format("</html>%n");
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("Unable to create site index at " +
+                    Paths.get(siteRoot.toString(), indexFileName));
+        }
+        System.out.println(FILE_CREATION_HEADER + Paths.get(siteRoot.toString(), indexFileName).toString().replaceFirst(
+                currentPath.toString().replace("\\", "\\\\"), "."));
     }
 
     private void createDirAndDisplayPath(String directoryName)
     {
         // Generate path to new directory
+        Path path = Paths.get(siteRoot.toString(), directoryName);
 
         // Try to make directory
-            // If successful, display path to new directory
-            // Else, display error message
+        boolean success = new File(path.toString()).mkdirs();
+
+        // If successful, display path to new dir
+        if(success)
+        {
+            // Display relative path instead of absolute path
+            System.out.println(FILE_CREATION_HEADER + path.toString().replaceFirst(
+                    currentPath.toString().replace("\\", "\\\\"), "."));
+        }
+        // Otherwise, display an error message
+        else
+        {
+            System.out.println("Unable to create directory at " + path);
+        }
     }
 }
