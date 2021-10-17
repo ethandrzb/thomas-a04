@@ -114,6 +114,7 @@ class Database
     }
 }
 
+// NOTE: GSON does not currently support records
 class Product
 {
     private final String name;
