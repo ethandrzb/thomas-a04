@@ -20,7 +20,7 @@ class CSVToTabularTest {
         CSVToTabular cTab = new CSVToTabular();
 
         // Read CSV
-        cTab.readCSV("exercise42_input.txt");
+        cTab.readCSV("exercise42_input_test_1.txt");
 
         ArrayList<ArrayList<String>> actual = (ArrayList<ArrayList<String>>) cTab.getData();
 
@@ -71,7 +71,7 @@ class CSVToTabularTest {
         CSVToTabular cTab = new CSVToTabular();
 
         // Read CSV
-        cTab.readCSV("exercise42_input.txt");
+        cTab.readCSV("exercise42_input_test_1.txt");
 
         String[] actual = cTab.employeeCSVToTable().split("\n");
 
