@@ -31,20 +31,35 @@ public class Solution44
         sol.readJSONFile();
 
         // Begin search for product
-
+        sol.searchForProduct();
 
         // Exit
         System.exit(0);
     }
 
-    public void searchForProduct(String query)
+    public void searchForProduct()
     {
-        // <infinite loop>
-            // Check if query matches any name in database
-                // If so, break from loop
-                // If not, v error message
+        String query;
 
-        // Get product info
+        // <infinite loop>
+        while(true)
+        {
+            System.out.print("What is the product name? ");
+            query = sc.nextLine();
+
+            // Check if query matches any product name in database
+            if(db.getProductDatabase().containsKey(query))
+            {
+                // If so, display product info
+                System.out.print(db.getProductDatabase().get(query));
+                break;
+            }
+            else
+            {
+                // If not, display error message
+                System.out.println("Sorry, that product was not found in our inventory.");
+            }
+        }
     }
 
     private void readJSONFile()
@@ -54,7 +69,6 @@ public class Solution44
         {
             // If successful, convert to list of objects
             db = new Gson().fromJson(fromFile,Database.class);
-//            db.getProductDatabase().forEach(System.out::println);
             for(String productName : db.getProductDatabase().keySet())
             {
                 System.out.println(db.getProductDatabase().get(productName));
@@ -76,7 +90,6 @@ class Database
     public Database(List<Product> products)
     {
         this.products = (ArrayList<Product>) products;
-
     }
     public Map<String, Product> getProductDatabase()
     {
@@ -89,11 +102,6 @@ class Database
 
         return productMap;
     }
-    // @TODO: Remove this method
-//    public List<Product> getProductDatabase()
-//    {
-//        return products;
-//    }
 }
 
 class Product
