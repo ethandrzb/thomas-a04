@@ -3,9 +3,14 @@
 
 class Solution41
 {
+    -{static}Scanner sc
+    -Path currentPath
+
     +{static} void main(String[] args)
 
     +void findAndReplace(String inputFileName, String outputFileName)
+    -void executeFindAndReplace(Scanner fromFile, String outputFileName)
+    -Path getPathFromFileName(String fileName)
 }
 
 @enduml
