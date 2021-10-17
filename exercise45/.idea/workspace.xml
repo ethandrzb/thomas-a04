@@ -4,10 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7233add8-63ab-446f-80f9-7b2eaa6501a1" name="Changes" comment="Finished Solution45&#10;Updated class_diagram.puml accordingly">
-      <change afterPath="$PROJECT_DIR$/data/exercise45_input_test_1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/exercise45_output_test_1_txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/baseline/Solution45Test.java" afterDir="false" />
+    <list default="true" id="7233add8-63ab-446f-80f9-7b2eaa6501a1" name="Changes" comment="Added unit test to Solution45Test">
+      <change afterPath="$PROJECT_DIR$/../exercise46/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exercise46/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exercise46/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exercise46/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exercise46/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exercise46/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exercise46/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exercise46/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exercise46/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exercise46/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exercise46/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exercise46/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exercise46/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exercise46/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exercise46/src/main/java/baseline/Solution46.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise44/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../exercise44/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634499893806</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added unit test to Solution45Test">
+      <created>1634501094397</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1634501094397</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -183,10 +205,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Start of Solution45" />
     <MESSAGE value="Finished Solution45&#10;Updated class_diagram.puml accordingly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished Solution45&#10;Updated class_diagram.puml accordingly" />
+    <MESSAGE value="Added unit test for Solution45" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added unit test for Solution45" />
   </component>
 </project>

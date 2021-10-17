@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Solution46
+{
+    +static void main(String[] args)
+}
+
+class WordFrequencyFinder
+{
+    +void getWordFrequencies(String fileName)
+    +void sortWordFrequencyArray()
+    +String generateOutput()
+    -int getFieldWidth()
+}
+
+Solution46 o-- WordFrequencyFinder
+
+@enduml
