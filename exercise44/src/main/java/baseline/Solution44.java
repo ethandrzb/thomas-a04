@@ -29,7 +29,7 @@ public class Solution44
         String query;
 
         // Read product database
-        sol.readDatabaseFromJSONFile();
+        sol.readDatabaseFromJSONFile("exercise44_input.json");
 
         // Begin search for product
         // <infinite loop>
@@ -56,10 +56,10 @@ public class Solution44
         System.exit(0);
     }
 
-    private void readDatabaseFromJSONFile()
+    public void readDatabaseFromJSONFile(String fileName)
     {
         // Attempt to read database from JSON file
-        try(Reader fromFile = Files.newBufferedReader(Paths.get(currentPath.toString(), "exercise44_input.json")))
+        try(Reader fromFile = Files.newBufferedReader(Paths.get(currentPath.toString(), fileName)))
         {
             db = new Gson().fromJson(fromFile,Database.class);
         }
@@ -67,8 +67,13 @@ public class Solution44
         {
             // If not, print error message
             System.out.println("Unable to open JSON at " +
-                    Paths.get(currentPath.toString(), "exercise44_input.json"));
+                    Paths.get(currentPath.toString(), fileName));
         }
+    }
+
+    public Database getDatabase()
+    {
+        return db;
     }
 }
 
@@ -132,5 +137,14 @@ class Product
     public String getName()
     {
         return name;
+    }
+
+    public double getPrice()
+    {
+        return price;
+    }
+    public int getQuantity()
+    {
+        return quantity;
     }
 }
