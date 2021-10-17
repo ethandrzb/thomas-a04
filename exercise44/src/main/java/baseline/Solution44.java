@@ -20,7 +20,6 @@ public class Solution44
 {
     private static final Scanner sc = new Scanner(System.in);
     private final Path currentPath = Paths.get(System.getProperty("user.dir"), "data");
-    private static final String PRODUCT_NOT_FOUND = "<PRODUCT_NOT_FOUND>";
 
     private Database db;
 
@@ -40,7 +39,7 @@ public class Solution44
             query = sc.nextLine();
 
             // Check if query matches any product name in database
-            if (sol.getProductInfoFromDatabase(query).equals(PRODUCT_NOT_FOUND))
+            if (sol.db.getProductInfoFromDatabase(query).isEmpty())
             {
                 // If not, display error message
                 System.out.println("Sorry, that product was not found in our inventory.");
@@ -48,28 +47,13 @@ public class Solution44
             else
             {
                 // If so, display product info
-                System.out.print(sol.getProductInfoFromDatabase(query));
+                System.out.print(sol.db.getProductInfoFromDatabase(query));
                 break;
             }
         }
 
         // Exit
         System.exit(0);
-    }
-
-    public String getProductInfoFromDatabase(String query)
-    {
-        // Check if query matches any product name in database
-        if(db.getProductDatabase().containsKey(query))
-        {
-            // If so, return product info
-            return db.getProductDatabase().get(query).toString();
-        }
-        else
-        {
-            // If not, return error code
-            return PRODUCT_NOT_FOUND;
-        }
     }
 
     private void readDatabaseFromJSONFile()
@@ -106,6 +90,22 @@ class Database
         }
 
         return productMap;
+    }
+    public String getProductInfoFromDatabase(String query)
+    {
+        HashMap<String, Product> productMap = (HashMap<String, Product>) getProductDatabase();
+
+        // Check if query matches any product name in database
+        if(productMap.containsKey(query))
+        {
+            // If so, return product info
+            return productMap.get(query).toString();
+        }
+        else
+        {
+            // If not, return empty string
+            return "";
+        }
     }
 }
 
