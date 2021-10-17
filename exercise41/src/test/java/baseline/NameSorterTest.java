@@ -87,7 +87,7 @@ class NameSorterTest
 
         NameSorter ns = new NameSorter();
 
-        ns.readNameList("exercise41_input.txt");
+        ns.readNameList("exercise41_input_test_1.txt");
 
         ArrayList<HashMap<String, String>> actualNames = (ArrayList<HashMap<String, String>>) ns.getNames();
 
@@ -117,15 +117,15 @@ class NameSorterTest
                 """.split("\n");
         NameSorter ns = new NameSorter();
 
-        ns.readNameList("exercise41_input.txt");
+        ns.readNameList("exercise41_input_test_1.txt");
 
         ns.sortNameList();
 
         String output = ns.generateOutput();
 
-        ns.writeNameList("exercise41_output.txt", output);
+        ns.writeNameList("exercise41_output_test_1.txt", output);
 
-        Scanner sc = new Scanner(new File("data/exercise41_output.txt"));
+        Scanner sc = new Scanner(new File("data/exercise41_output_test_1.txt"));
 
         // Read generated file
         for(String line : expected)
