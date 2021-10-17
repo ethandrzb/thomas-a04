@@ -20,27 +20,19 @@ public class Solution44
 {
     private static final Scanner sc = new Scanner(System.in);
     private final Path currentPath = Paths.get(System.getProperty("user.dir"), "data");
+    private static final String PRODUCT_NOT_FOUND = "<PRODUCT_NOT_FOUND>";
 
     private Database db;
 
     public static void main(String[] args)
     {
         Solution44 sol = new Solution44();
-
-        // Read product database
-        sol.readJSONFile();
-
-        // Begin search for product
-        sol.searchForProduct();
-
-        // Exit
-        System.exit(0);
-    }
-
-    public void searchForProduct()
-    {
         String query;
 
+        // Read product database
+        sol.readDatabaseFromJSONFile();
+
+        // Begin search for product
         // <infinite loop>
         while(true)
         {
@@ -48,31 +40,44 @@ public class Solution44
             query = sc.nextLine();
 
             // Check if query matches any product name in database
-            if(db.getProductDatabase().containsKey(query))
-            {
-                // If so, display product info
-                System.out.print(db.getProductDatabase().get(query));
-                break;
-            }
-            else
+            if (sol.getProductInfoFromDatabase(query).equals(PRODUCT_NOT_FOUND))
             {
                 // If not, display error message
                 System.out.println("Sorry, that product was not found in our inventory.");
             }
+            else
+            {
+                // If so, display product info
+                System.out.print(sol.getProductInfoFromDatabase(query));
+                break;
+            }
+        }
+
+        // Exit
+        System.exit(0);
+    }
+
+    public String getProductInfoFromDatabase(String query)
+    {
+        // Check if query matches any product name in database
+        if(db.getProductDatabase().containsKey(query))
+        {
+            // If so, return product info
+            return db.getProductDatabase().get(query).toString();
+        }
+        else
+        {
+            // If not, return error code
+            return PRODUCT_NOT_FOUND;
         }
     }
 
-    private void readJSONFile()
+    private void readDatabaseFromJSONFile()
     {
-        // Attempt to read JSON file
+        // Attempt to read database from JSON file
         try(Reader fromFile = Files.newBufferedReader(Paths.get(currentPath.toString(), "exercise44_input.json")))
         {
-            // If successful, convert to list of objects
             db = new Gson().fromJson(fromFile,Database.class);
-            for(String productName : db.getProductDatabase().keySet())
-            {
-                System.out.println(db.getProductDatabase().get(productName));
-            }
         }
         catch(IOException e)
         {
