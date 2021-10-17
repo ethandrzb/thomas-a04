@@ -4,11 +4,20 @@
 class Solution44
 {
     -{static} Scanner sc
+    -Path currentPath
+    -Database db
 
     +{static} void main(String[] args)
+    -void readDatabaseFromJSONFile()
+}
 
-    +void searchForProduct(String query)
-    -void readJSONFile()
+class Database
+{
+    -ArrayList<Product> products
+
+    +Database(List<Product>)
+    +Map<String, Product> getProductDatabase()
+    +String getProductInfo(String query)
 }
 
 class Product
@@ -17,6 +26,8 @@ class Product
     -double price;
     -int quantity;
 
+    +Product(String name, double price, int quantity)
+    +String getName()
     +String toString()
 }
 

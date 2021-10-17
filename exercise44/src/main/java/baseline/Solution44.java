@@ -39,7 +39,7 @@ public class Solution44
             query = sc.nextLine();
 
             // Check if query matches any product name in database
-            if (sol.db.getProductInfoFromDatabase(query).isEmpty())
+            if (sol.db.getProductInfo(query).isEmpty())
             {
                 // If not, display error message
                 System.out.println("Sorry, that product was not found in our inventory.");
@@ -47,7 +47,7 @@ public class Solution44
             else
             {
                 // If so, display product info
-                System.out.print(sol.db.getProductInfoFromDatabase(query));
+                System.out.print(sol.db.getProductInfo(query));
                 break;
             }
         }
@@ -91,7 +91,7 @@ class Database
 
         return productMap;
     }
-    public String getProductInfoFromDatabase(String query)
+    public String getProductInfo(String query)
     {
         HashMap<String, Product> productMap = (HashMap<String, Product>) getProductDatabase();
 
