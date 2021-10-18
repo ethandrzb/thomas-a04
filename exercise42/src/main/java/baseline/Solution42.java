@@ -33,7 +33,7 @@ class CSVToTabular
     private final ArrayList<ArrayList<String>> data = new ArrayList<>();
 
     private final Path currentPath = Paths.get(System.getProperty("user.dir"));
-    private final String[] header = {"Last", "First", "Salary"};
+    private final String[] headerLabels = {"Last", "First", "Salary"};
 
     private Path getPathFromFileName(String fileName)
     {
@@ -69,7 +69,7 @@ class CSVToTabular
                 + "s%-" + getFieldWidth(1)
                 + "s%-" + getFieldWidth(2) + "s%n";
         // Add header to buffer
-        output.append(String.format(rowFormat, header[0], header[1], header[2]));
+        output.append(String.format(rowFormat, headerLabels[0], headerLabels[1], headerLabels[2]));
 
         // Add divider to buffer
         output.append("-".repeat(getDividerLength()));
@@ -100,7 +100,7 @@ class CSVToTabular
 
     private int getFieldWidth(int column)
     {
-        int max = header[column].length();
+        int max = headerLabels[column].length();
 
         // Find the length of the longest entry in this column
         for (ArrayList<String> datum : data)

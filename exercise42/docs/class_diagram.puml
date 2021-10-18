@@ -8,15 +8,21 @@ class Solution42
 
 class CSVToTabular
 {
+    ' Fields
     -ArrayList<ArrayList<String>> data
     -Path currentPath
-    -String[] header
+    -String[] headerLabels
 
-    -Path getPathFromFileName(String fileName)
+    ' User interface
     +void readCSV(String inputFileName)
     +String employeeCSVToTable()
+
+    ' Helper methods
+    -Path getPathFromFileName(String fileName)
     -int getDividerLength()
     -int getFieldWidth(int column)
+
+    ' Accessor methods for testing
     +List<ArrayList<String>> getData()
 }
 
