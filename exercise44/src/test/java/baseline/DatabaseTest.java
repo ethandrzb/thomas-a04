@@ -24,6 +24,8 @@ class DatabaseTest
         // There isn't a product with the name "dgsaf" in the database, so the query should return an empty string
         assertTrue(actualDB.getProductInfo("dgsaf").isEmpty());
 
+        // There is a product named "Widget" in the database
+        // We'll verify its information productToString
         assertFalse(actualDB.getProductInfo("Widget").isEmpty());
     }
 

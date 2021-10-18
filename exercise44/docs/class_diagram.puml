@@ -8,26 +8,39 @@ class Solution44
     -Database db
 
     +{static} void main(String[] args)
-    -void readDatabaseFromJSONFile()
+
+    +void readDatabaseFromJSONFile()
+    +Database getDatabase()
 }
 
 class Database
 {
+    ' Fields
     -ArrayList<Product> products
 
+    ' Constructor
     +Database(List<Product>)
+
+    ' User interface
     +Map<String, Product> getProductDatabase()
     +String getProductInfo(String query)
 }
 
 class Product
 {
+    ' Fields
     -String name;
     -double price;
     -int quantity;
 
+    ' Constructor
     +Product(String name, double price, int quantity)
+
+    ' Accessor methods
     +String getName()
+    +double getPrice()
+    +int getQuantity()
+
     +String toString()
 }
 
