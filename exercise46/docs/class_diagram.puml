@@ -8,10 +8,16 @@ class Solution46
 
 class WordFrequencyFinder
 {
+    -Path currentPath
+    -ArrayList<String> words
+    -HashMap<String, Integer> freq
+
     +void getWordFrequencies(String fileName)
-    +void sortWordFrequencyArray()
+    +void sortWordList()
     +String generateOutput()
     -int getFieldWidth()
+    -Path getPathFromFileName(String fileName)
+    
 }
 
 Solution46 o-- WordFrequencyFinder
