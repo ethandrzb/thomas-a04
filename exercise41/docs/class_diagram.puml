@@ -8,6 +8,7 @@ class Solution41
 
 class NameSorter
 {
+    ' Fields
     -String FIRST_NAME
     -String LAST_NAME
     -Path currentPath
@@ -17,12 +18,17 @@ class NameSorter
     +NameSorter()
     +NameSorter(List<HashMap<String, String>> names)
 
-    -Path getPathFromFileName(String fileName)
-    -void readNameList() throws IOException
-    -void writeNameList(String output) throws IOException
+    ' User interface
     +void sortNameList(List<HashMap<String, String>> list)
-    -String generateOutput()
+    +void readNameList() throws IOException
+    +void writeNameList(String output) throws IOException
+    +String generateOutput()
+
+    ' Helper methods
+    -Path getPathFromFileName(String fileName)
     -int getDividerLength()
+
+    ' Accessor methods for testing
     +List<HashMap<String, String>> getNames()
 }
 
