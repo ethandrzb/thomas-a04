@@ -23,7 +23,7 @@ class WordFrequencyFinder
     -Path getPathFromFileName(String fileName)
 
     ' Accessor methods for testing
-    +Map<String, Integer> getFrequencyMap()
+    +Map<String, Integer> getWordFrequencyMap()
     +List<String> getWordList()
     
 }
