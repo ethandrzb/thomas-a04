@@ -8,6 +8,7 @@ class Solution41
 
     +{static} void main(String[] args)
 
+    ' User interface of solution only consists of one method, so it was not placed in its own class
     +void findAndReplace(String inputFileName, String outputFileName)
     -void executeFindAndReplace(Scanner fromFile, String outputFileName)
     -Path getPathFromFileName(String fileName)
