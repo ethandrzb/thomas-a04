@@ -5,25 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7233add8-63ab-446f-80f9-7b2eaa6501a1" name="Changes" comment="Added unit test to Solution45Test">
-      <change afterPath="$PROJECT_DIR$/../exercise46/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise46/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise46/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise46/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise46/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise46/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise46/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise46/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise46/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise46/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise46/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise46/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise46/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise46/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise46/src/main/java/baseline/Solution46.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../exercise44/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../exercise44/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise46/src/main/java/baseline/Solution46.java" beforeDir="false" afterPath="$PROJECT_DIR$/../exercise46/src/main/java/baseline/Solution46.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
