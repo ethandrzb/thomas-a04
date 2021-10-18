@@ -11,6 +11,7 @@ class Solution43
 
 class WebsiteGenerator
 {
+    ' Fields
     -Path currentPath
     -Path siteRoot
     -{static} String FILE_CREATION_HEADER
@@ -19,8 +20,13 @@ class WebsiteGenerator
     -boolean createJSFolder
     -boolean createCSSFolder
 
+    ' Constructor
     +WebsiteGenerator(String websiteName, String authorName, boolean createJSFolder, boolean createCSSFolder)
+
+    ' User interface
     +void generateSite()
+
+    ' Helper methods
     -void generateSiteIndex()
     -void createDirAndDisplayPath(String directoryName)
 }
