@@ -64,6 +64,7 @@ class WordFrequencyFinder
             System.out.println("Unable to open input file at " + getPathFromFileName(fileName));
         }
 
+        // Copy words to sortable list
         words.addAll(freq.keySet());
     }
 
@@ -110,5 +111,15 @@ class WordFrequencyFinder
     private Path getPathFromFileName(String fileName)
     {
         return Paths.get(currentPath.toString(), "data", fileName);
+    }
+
+    public Map<String, Integer> getWordFrequencyMap()
+    {
+        return freq;
+    }
+
+    public List<String> getWordList()
+    {
+        return words;
     }
 }
