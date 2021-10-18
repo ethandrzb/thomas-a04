@@ -140,7 +140,7 @@ class WebsiteGenerator
             output.format("<!DOCTYPE html>%n");
 
             // Start of HTML
-            output.format("<html>%n");
+            output.format("<html lang=\"en\">%n");
 
             // Start of heading
             output.format("<head>%n");

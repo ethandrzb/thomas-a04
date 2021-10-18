@@ -11,3 +11,11 @@ P
  data/exercise42_input_test_1.txt,b\c\bcbeda9c9ba7a504cb377b17b0822e3944ef1b3d
 \
 ,src/test/java/baseline/CSVToTabularTest.java,6\6\6673df1b5ed6fb610ebfa012f5314e1a24e3fcaa
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+V
+&src/main/java/baseline/Solution42.java,c\f\cf2d704d5d2f3d0af870581692ca07d745f0c0d9
+G
+docs/class_diagram.puml,3\f\3f402165095811aca6e0baa1d8152e947914a678
+X
+(gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
